@@ -25,6 +25,7 @@ export default function PhotoList() {
                 title={stars.title}
                 source={stars.hdurl}
                 description={stars.explanation}
+                link={stars.url}
                 id={stars.id}
                 />
         </div>
