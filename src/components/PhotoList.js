@@ -7,7 +7,7 @@ export default function PhotoList() {
 
     React.useEffect(() => {
         axios
-            .get("https://api.nasa.gov/planetary/apod")
+            .get("https://api.nasa.gov/planetary/apod?api_key=EQyGW9Mv45gdaxSZNZkw7gnDizy0vqgVPGtJtiS4")
             .then(result => {
                 console.log(result);
                 setStars(result.data);
@@ -20,15 +20,13 @@ export default function PhotoList() {
 
     return (
         <div className="nasa">
-            {stars.map(star => {
-                return (
-                    <PhotoCard
-                        title={star.title}
-                        description={star.description}
-                        key={star.id}
-                    />
-                );
-            })}
+            <PhotoCard
+                date={stars.date}
+                title={stars.title}
+                source={stars.hdurl}
+                description={stars.explanation}
+                id={stars.id}
+                />
         </div>
     );
 }
